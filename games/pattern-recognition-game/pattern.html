@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pattern Recognition</title>
+
+    <link rel="stylesheet" href="pattern.css">
+</head>
+
+<body>
+
+    <main class="game-container">
+
+        <h1>Pattern Recognition</h1>
+
+        <p class="instruction">
+            Look at the pattern and choose what comes next.
+        </p>
+
+        <div class="progress">
+            Question <span id="questionNumber">1</span>
+            of <span id="totalQuestions">5</span>
+        </div>
+
+        <section class="pattern-box">
+
+            <h2>What comes next?</h2>
+
+            <div id="pattern" class="pattern">
+                <!-- Pattern will appear here -->
+            </div>
+
+        </section>
+
+        <section class="options-section">
+
+            <div id="options" class="options">
+                <!-- Answer buttons will appear here -->
+            </div>
+
+        </section>
+
+        <p id="feedback" class="feedback"></p>
+
+        <button id="nextButton" class="next-button" hidden>
+            Next
+        </button>
+
+        <div id="completionScreen" class="completion-screen" hidden>
+
+            <h2>Well done!</h2>
+
+            <p>You completed the game.</p>
+
+            <p>
+                Correct answers:
+                <strong id="correctCount">0</strong>
+            </p>
+
+            <button id="restartButton" class="restart-button">
+                Play Again
+            </button>
+
+        </div>
+
+    </main>
+
+    <script src="pattern.js"></script>
+
+</body>
+</html>

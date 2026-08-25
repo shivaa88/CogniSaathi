@@ -1,0 +1,113 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    color: #222;
+}
+
+.game-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.instruction {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.progress {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.pattern-box {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+}
+
+.pattern-box h2 {
+    font-size: 28px;
+}
+
+.pattern {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.pattern-item {
+    font-size: 55px;
+    min-width: 70px;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 500px;
+    margin: auto;
+}
+
+.answer-button {
+    min-height: 100px;
+    font-size: 42px;
+    border: 3px solid #333;
+    border-radius: 14px;
+    background: white;
+    cursor: pointer;
+}
+
+.answer-button:hover {
+    background: #eeeeee;
+}
+
+.answer-button:disabled {
+    cursor: default;
+    opacity: 0.7;
+}
+
+.feedback {
+    font-size: 26px;
+    font-weight: bold;
+    margin: 25px;
+}
+
+.next-button,
+.restart-button {
+    min-height: 60px;
+    padding: 15px 35px;
+    font-size: 24px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.completion-screen {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+}
+
+.completion-screen h2 {
+    font-size: 36px;
+}
+
+.completion-screen p {
+    font-size: 24px;
+}
+
