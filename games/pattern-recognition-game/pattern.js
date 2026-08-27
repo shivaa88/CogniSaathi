@@ -638,3 +638,4 @@ function dispatchCompleteEvent(
 loadQuestion();
 
 updateScoreboard();
+
