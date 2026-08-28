@@ -1,5 +1,5 @@
 /* =====================================================
-   SMRITICARE - ROUTINE RECALL
+   CogniSaathi - ROUTINE RECALL
    ===================================================== */
 
 
@@ -99,6 +99,25 @@ const routines = {
 
 /* ================= GAME STATE ================= */
 
+const GAME_AUDIO = {
+    easy: "easy",
+    medium: "medium",
+    hard: "hard"
+};
+
+function playGameAudio(name) {
+    const language =
+        localStorage.getItem("CogniSaathiLanguage") || "english";
+
+    const audio = new Audio(
+        `../audio/${language}/${name}.mp3`
+    );
+
+    audio.play().catch(error => {
+        console.log("Audio error:", error);
+    });
+}
+
 let currentDifficulty = "easy";
 let currentRoutine = null;
 
@@ -172,6 +191,7 @@ document.querySelectorAll(".difficulty-btn").forEach(button => {
 
         currentDifficulty =
             button.dataset.difficulty;
+            playGameAudio(currentDifficulty);
     });
 
 });
@@ -360,6 +380,8 @@ function startSequenceTimer() {
 
 readyBtn.addEventListener("click", () => {
 
+    playGameAudio("matching-card");
+
     showQuestion();
 
 });
@@ -466,6 +488,7 @@ function checkAnswer(button, selectedAnswer) {
 
 
     if (selectedAnswer === correctAnswer) {
+        playGameAudio("well-done");
 
         button.classList.add("correct");
 
@@ -480,7 +503,7 @@ function checkAnswer(button, selectedAnswer) {
             "✓ Correct! Well remembered.";
 
     } else {
-
+playGameAudio("try-again");
         button.classList.add("wrong");
 
         document

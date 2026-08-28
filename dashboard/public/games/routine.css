@@ -519,3 +519,6 @@ footer small {
         font-size: 12px;
     }
 }
+.game-header-hide{
+  display: none !important;
+}
