@@ -1,9 +1,8 @@
-
 .phoneShell {
   width: 430px;
   max-width: 100%;
   height: min(900px, 100vh);
-  background: #f5f8f5;
+  background: #f6fbf9;
   border-radius: 26px;
   box-shadow: 0 25px 70px rgba(26,45,38,0.2);
   overflow: hidden;
@@ -30,7 +29,7 @@
 .statusBrand {
   font-weight: 1000;
   font-size: 16px;
-  color: #155044;
+  color: #1a4d43;
 }
 
 .statusRight {
@@ -74,7 +73,7 @@
 }
 .langLabel {
   font-weight: 1000;
-  color: #155044;
+  color: #1a4d43;
   font-size: 12px;
 }
 .langButtons {
@@ -88,13 +87,13 @@
   padding: 7px 12px;
   cursor: pointer;
   font-weight: 1000;
-  color: #4b5f59;
+  color: #6b7280;
   font-size: 12px;
 }
 .langBtn.active {
   border: none;
-  background: #e4f0eb;
-  color: #155044;
+  background: #eff6f2;
+  color: #1a4d43;
 }
 
 /* home */
@@ -121,7 +120,7 @@
 .homeSub {
   margin-top: 2px;
   font-weight: 900;
-  color: #4b5f59;
+  color: #6b7280;
   font-size: 12px;
 }
 
@@ -129,7 +128,7 @@
   margin: 4px 0 12px;
   font-size: 18px;
   font-weight: 1000;
-  color: #155044;
+  color: #1a4d43;
 }
 
 .grid3 {
@@ -159,7 +158,7 @@
 .tileSub {
   margin-top: 2px;
   font-weight: 900;
-  color: #4b5f59;
+  color: #6b7280;
   font-size: 12px;
 }
 
@@ -182,7 +181,7 @@
 .miniHint {
   margin-top: 10px;
   font-weight: 900;
-  color: #4b5f59;
+  color: #6b7280;
   font-size: 12px;
 }
 
@@ -217,16 +216,16 @@
 .navLabel {
   font-size: 11px;
   font-weight: 1000;
-  color: #536660;
+  color: #9ca3af;
 }
 
 .navItem.active .navLabel,
 .navItem.active {
-  color: #155044;
+  color: #1a4d43;
 }
 
 .navItem.active {
-  background: #e4f0eb;
+  background: #eff6f2;
 }
 
 /* games */
@@ -250,7 +249,7 @@
 
 .pillTitle {
   font-weight: 1000;
-  color: #4b5f59;
+  color: #6b7280;
   font-size: 12px;
 }
 
@@ -272,12 +271,12 @@
 }
 .streakTitle {
   font-weight: 1000;
-  color: #155044;
+  color: #1a4d43;
 }
 .streakSub {
   margin-top: 2px;
   font-weight: 900;
-  color: #4b5f59;
+  color: #6b7280;
   font-size: 12px;
 }
 .streakRight {
@@ -286,11 +285,11 @@
 .streakNum {
   font-size: 22px;
   font-weight: 1000;
-  color: #155044;
+  color: #1a4d43;
 }
 .streakNumSub {
   font-weight: 900;
-  color: #4b5f59;
+  color: #6b7280;
   font-size: 12px;
 }
 
@@ -305,7 +304,7 @@
   border-radius: 20px;
   border: 1px solid rgba(0,0,0,0.06);
   padding: 14px;
-  background: #e4f0eb;
+  background: #eff6f2;
   display: flex;
   gap: 12px;
   align-items: center;
@@ -326,7 +325,7 @@
 }
 
 .gameCardTag {
-  color: #4b5f59;
+  color: #6b7280;
   font-weight: 1000;
   font-size: 11px;
 }
@@ -342,7 +341,7 @@
   padding: 5px 10px;
   border-radius: 999px;
   background: #e8f6ef;
-  color: #155044;
+  color: #1a4d43;
   font-weight: 1000;
   font-size: 12px;
 }
@@ -361,7 +360,7 @@
 }
 .iframeTitle {
   font-weight: 1000;
-  color: #155044;
+  color: #1a4d43;
 }
 
 .gameIframe {
@@ -375,11 +374,11 @@
 .bigTitle {
   margin: 0 0 10px;
   font-weight: 1000;
-  color: #155044;
+  color: #1a4d43;
 }
 .mutedP {
   margin: 0 0 14px;
-  color: #4b5f59;
+  color: #6b7280;
   font-weight: 900;
   font-size: 12px;
 }
@@ -397,12 +396,12 @@
 }
 .careTitle {
   font-weight: 1000;
-  color: #155044;
+  color: #1a4d43;
   font-size: 24px;
 }
 .careSub {
   margin-top: 4px;
-  color: #4b5f59;
+  color: #6b7280;
   font-weight: 900;
   font-size: 12px;
 }
@@ -426,7 +425,7 @@
 .statBig {
   margin-top: 6px;
   font-weight: 1000;
-  color: #155044;
+  color: #1a4d43;
   font-size: 26px;
 }
 .statBar {
@@ -448,8 +447,8 @@
   gap: 10px;
 }
 .tagPill {
-  background: #e4f0eb;
-  color: #155044;
+  background: #eff6f2;
+  color: #1a4d43;
   font-weight: 1000;
   font-size: 12px;
   padding: 8px 10px;
@@ -474,7 +473,7 @@
   width: 44px;
   height: 44px;
   border-radius: 16px;
-  background: #e4f0eb;
+  background: #eff6f2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -487,7 +486,7 @@
 .listSub {
   margin-top: 2px;
   font-weight: 900;
-  color: #4b5f59;
+  color: #6b7280;
   font-size: 12px;
 }
 .listCheck {
@@ -509,116 +508,6 @@
   padding: 0;
   cursor: pointer;
   font-weight: 1000;
-  color: #155044;
+  color: #1a4d43;
   font-size: 16px;
-}
-
-/* =========================================
-   ELDERLY ACCESSIBILITY + NER INSPIRED THEME
-   ========================================= */
-
-.phoneShell {
-  background: #f7f3e8;
-  border: 1px solid #b8cbc3;
-}
-
-.cardShell {
-  background: #fffdf7;
-  border: 1px solid #c8d6d0;
-}
-
-/* Stronger readable text */
-.homeSub,
-.tileSub,
-.miniHint,
-.streakSub,
-.streakNumSub,
-.gameCardTag,
-.pillTitle,
-.careSub,
-.listSub,
-.mutedP {
-  color: #344841;
-}
-
-/* Stronger Assam/tea-leaf green */
-.statusBrand,
-.statusBrandLink,
-.langLabel,
-.homeSectionTitle,
-.streakTitle,
-.streakNum,
-.iframeTitle,
-.bigTitle,
-.careTitle,
-.statBig {
-  color: #12483f;
-}
-
-/* More visible cards for elderly users */
-.homeTile,
-.streakCard,
-.gameCard,
-.statCard,
-.listItem,
-.iframeWrap {
-  border: 1.5px solid #b9cbc4;
-}
-
-/* Soft green interactive surfaces */
-.gameCard,
-.langBtn.active,
-.navItem.active,
-.levelPill,
-.tagPill,
-.listIcon {
-  background: #dfece6;
-}
-
-/* Strong primary action */
-.primaryBtn {
-  background: #1f6254;
-  color: #ffffff;
-  font-size: 15px;
-}
-
-/* Clearer navigation labels */
-.navLabel {
-  color: #52655f;
-  font-size: 12px;
-}
-
-.navItem.active .navLabel,
-.navItem.active {
-  color: #12483f;
-}
-
-/* Improve language button visibility */
-.langBtn {
-  border: 1.5px solid #aebfb8;
-  color: #344841;
-}
-
-.langBtn.active {
-  border: 2px solid #1f6254;
-  color: #12483f;
-}
-
-/* Clearer back button */
-.backLink {
-  background: #e5eee9;
-  color: #174d42;
-  border: 1px solid #b4c8c0;
-}
-
-/* Larger supporting text */
-.homeSub,
-.tileSub,
-.streakSub,
-.streakNumSub,
-.careSub,
-.listSub,
-.mutedP {
-  font-size: 13px;
-  line-height: 1.45;
 }

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Match | CogniSaathi</title>
+    <link rel="stylesheet" href="memory.css">
+</head>
+<body>
+    <div class="page-wrapper">
+
+        <header class="game-header game-header-hide">
+            <div class="brand">
+                <div class="brand-icon">🌿</div>
+                <div>
+                    <h1>CogniSaathi</h1>
+                    <p>Memory Match</p>
+                </div>
+            </div>
+
+            <div class="cultural-badge">
+                <span>🍵</span>
+                <span>🌸</span>
+                <span>🎋</span>
+                <span>Inspired by Northeast India</span>
+            </div>
+        </header>
+
+        <main class="game-container">
+            <section class="screen">
+
+                <div class="welcome-icon">🧠</div>
+
+                <h2>Memory Match</h2>
+
+                <p class="intro-text">
+                    Match the familiar symbols and strengthen memory through playful recall.
+                </p>
+
+                <div class="difficulty-section">
+                    <h3>Choose Difficulty</h3>
+
+                    <div class="difficulty-buttons">
+                        <button class="difficulty-btn" data-level="easy">
+                            <strong>Easy</strong>
+                            <small>4 pairs</small>
+                        </button>
+
+                        <button class="difficulty-btn" data-level="medium">
+                            <strong>Medium</strong>
+                            <small>6 pairs</small>
+                        </button>
+
+                        <button class="difficulty-btn" data-level="hard">
+                            <strong>Hard</strong>
+                            <small>8 pairs</small>
+                        </button>
+                    </div>
+                </div>
+
+                <section class="scoreboard">
+                    <div class="score-card">
+                        <span>👣</span>
+                        <small>Moves</small>
+                        <strong id="moves">0</strong>
+                    </div>
+
+                    <div class="score-card">
+                        <span>⏱</span>
+                        <small>Time</small>
+                        <strong id="timer">00:00</strong>
+                    </div>
+
+                    <div class="score-card">
+                        <span>🧩</span>
+                        <small>Pairs</small>
+                        <strong id="pairs">0 / 4</strong>
+                    </div>
+                </section>
+
+                <section id="game-board"></section>
+
+                <button id="restart-btn" class="primary-btn">
+                    🔄 Restart Game
+                </button>
+
+                <section id="win-message" class="completion-screen hidden">
+                    <div class="result-icon">🏆</div>
+
+                    <h2>Great Job!</h2>
+
+                    <p class="result-message">
+                        You completed the memory challenge.
+                    </p>
+
+                    <div class="result-card">
+                        <div class="result-item">
+                            <span>⭐</span>
+                            <strong id="final-score">0</strong>
+                            <small>Score</small>
+                        </div>
+
+                        <div class="result-item">
+                            <span>🧩</span>
+                            <strong id="final-pairs">0 / 4</strong>
+                            <small>Pairs</small>
+                        </div>
+
+                        <div class="result-item">
+                            <span>👣</span>
+                            <strong id="final-moves">0</strong>
+                            <small>Moves</small>
+                        </div>
+
+                        <div class="result-item">
+                            <span>⏱</span>
+                            <strong id="final-time">00:00</strong>
+                            <small>Time</small>
+                        </div>
+                    </div>
+
+                    <p id="performance-message" class="performance-message"></p>
+
+                    <button id="play-again" class="primary-btn">
+                        Play Again
+                    </button>
+                </section>
+
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-pattern">🌿 🍵 🌸 🎋</div>
+            Inspired by the rich natural and cultural heritage of North-Eastern India
+            <small>CogniSaathi - Cognitive wellness through familiar experiences</small>
+        </footer>
+    </div>
+
+    <script src="memory.js"></script>
+</body>
+</html>

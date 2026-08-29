@@ -239,33 +239,33 @@ export default function App() {
           <h2 className="homeSectionTitle">{t.playGames}</h2>
 
           <div className="grid3">
-  <button className="homeTile" onClick={() => go("reminders")}>
-    <div className="tileEmoji">💊</div>
-    <div className="tileTitle">{t.remindersTitle}</div>
-    <div className="tileSub">{t.remindersSub}</div>
-  </button>
+            <button className="homeTile" onClick={() => go("reminders")}>
+              <div className="tileEmoji">💊</div>
+              <div className="tileTitle">{t.remindersTitle}</div>
+              <div className="tileSub">{t.remindersSub}</div>
+            </button>
 
-  <button className="homeTile" onClick={() => go("voice")}>
-    <div className="tileEmoji">🎙️</div>
-    <div className="tileTitle">{t.voiceTitle}</div>
-    <div className="tileSub">{t.voiceSub}</div>
-  </button>
+            <button className="homeTile" onClick={() => go("voice")}>
+              <div className="tileEmoji">🎙️</div>
+              <div className="tileTitle">{t.voiceTitle}</div>
+              <div className="tileSub">{t.voiceSub}</div>
+            </button>
 
-  <button className="homeTile" onClick={() => go("call")}>
-    <div className="tileEmoji">📱</div>
-    <div className="tileTitle">{t.callTitle}</div>
-    <div className="tileSub">{t.callSub}</div>
-  </button>
+            <button className="homeTile" onClick={() => go("call")}>
+              <div className="tileEmoji">📱</div>
+              <div className="tileTitle">{t.callTitle}</div>
+              <div className="tileSub">{t.callSub}</div>
+            </button>
+          </div>
 
-  <button className="homeTile" onClick={() => openGameInShell("select")}>
-    <div className="tileEmoji">🎴</div>
-    <div className="tileTitle">Play Games</div>
-    <div className="tileSub">
-      Choose a game<br />
-      to play
-    </div>
-  </button>
-</div>
+          <div className="primaryWideRow">
+            <button className="homeTile" onClick={() => openGameInShell("select")}>
+  <div className="tileEmoji">🎴</div>
+  <div className="tileTitle">Play Games</div>
+  <div className="tileSub">{t.chooseGame}</div>
+</button>
+
+          </div>
 
           <div className="miniHint">Demo cards are clickable; games load inside phone shell via iframe.</div>
         </div>
@@ -357,251 +357,79 @@ export default function App() {
         </div>
       </div>
     );
-  }
+  };
 
   const Caregiver = () => {
-    const gameResults = JSON.parse(
-      localStorage.getItem("gameResults") || "[]"
-    );
-
-    const totalGames = gameResults.length;
-
-    const averageScore =
-      totalGames > 0
-        ? Math.round(
-            gameResults.reduce(
-              (sum: number, result: any) =>
-                sum + Number(result.score || 0),
-              0
-            ) / totalGames
-          )
-        : 0;
-
-    const averageTime =
-      totalGames > 0
-        ? Math.round(
-            gameResults.reduce(
-              (sum: number, result: any) =>
-                sum + Number(result.time || 0),
-              0
-            ) / totalGames
-          )
-        : 0;
-
-    const minutes = Math.floor(averageTime / 60);
-    const seconds = averageTime % 60;
-
     return (
       <div className="content">
         <div className="cardShell">
-
+          {/* This is the red-circled style header look: back button + top header + bottom nav */}
           <LanguageRow />
 
           <div className="careHeader">
-            <button
-              className="backLink"
-              onClick={toggleRole}
-            >
+            <button className="backLink" onClick={toggleRole}>
               ← {t.switchToPatient}
             </button>
 
             <div className="careTitleWrap">
-              <div className="careTitle">
-                {t.caregiverDashTitle}
-              </div>
-
-              <div className="careSub">
-                Patient game performance
-              </div>
+              <div className="careTitle">{t.caregiverDashTitle}</div>
+              <div className="careSub">{t.caregiverSub}</div>
             </div>
           </div>
-
-          {/* =========================
-              REAL GAME STATISTICS
-          ========================== */}
 
           <div className="careCards">
-
             <div className="statCard">
-              <div className="statTop">
-                Games Played
-              </div>
-
-              <div className="statBig">
-                {totalGames}
-              </div>
-
-              <div className="statSub">
-                Completed cognitive games
+              <div className="statTop">Today’s Progress</div>
+              <div className="statBig">2 / 9</div>
+              <div className="statBar">
+                <div className="statFill" style={{ width: "22%" }} />
               </div>
             </div>
 
-            <div className="statCard">
-              <div className="statTop">
-                Average Score
-              </div>
-
-              <div className="statBig">
-                {averageScore}%
-              </div>
-
-              <div className="statSub">
-                Across all games
-              </div>
+            <div className="tagRow">
+              <span className="tagPill">Medicine</span>
+              <span className="tagPill">Hydration</span>
+              <span className="tagPill">Activity</span>
+              <span className="tagPill">Appointment</span>
             </div>
 
-            <div className="statCard">
-              <div className="statTop">
-                Average Time
+            <div className="simpleList">
+              <div className="listItem">
+                <div className="listIcon">💊</div>
+                <div>
+                  <div className="listTitle">Morning Medicine</div>
+                  <div className="listSub">2 tablets with water</div>
+                </div>
+                <div className="listCheck">✓</div>
               </div>
 
-              <div className="statBig">
-                {minutes}m {seconds}s
+              <div className="listItem">
+                <div className="listIcon">🚶</div>
+                <div>
+                  <div className="listTitle">Morning Walk</div>
+                  <div className="listSub">15 minutes, gentle pace</div>
+                </div>
+                <div className="listCheck">✓</div>
               </div>
 
-              <div className="statSub">
-                Average completion time
+              <div className="listItem">
+                <div className="listIcon">💧</div>
+                <div>
+                  <div className="listTitle">Drink Water</div>
+                  <div className="listSub">1 glass (250ml)</div>
+                </div>
+                <div className="listCheck">✓</div>
               </div>
             </div>
-
           </div>
 
-          {/* =========================
-              RECENT GAME RESULTS
-          ========================== */}
-
-          <div className="careSection">
-            <h3>Recent Game Performance</h3>
-
-            {totalGames === 0 ? (
-              <p className="mutedP">
-                No games completed yet.
-              </p>
-            ) : (
-              <div className="simpleList">
-
-                {gameResults
-                  .slice()
-                  .reverse()
-                  .slice(0, 7)
-                  .map((result: any, index: number) => (
-
-                    <div
-                      className="listItem"
-                      key={index}
-                    >
-
-                      <div className="listIcon">
-                        🎮
-                      </div>
-
-                      <div>
-                        <div className="listTitle">
-                          {result.game}
-                        </div>
-
-                        <div className="listSub">
-                          Score: {result.score}%
-                          {" • "}
-                          Time: {result.time}s
-                          {" • "}
-                          Level: {result.difficulty}
-                        </div>
-
-                        <div className="listSub">
-                          {result.date}
-                        </div>
-                      </div>
-
-                    </div>
-
-                  ))}
-
-              </div>
-            )}
-          </div>
-
-          {/* =========================
-              PERFORMANCE SUMMARY
-          ========================== */}
-
-          <div className="careSection">
-
-            <h3>Performance Summary</h3>
-
-            {totalGames === 0 ? (
-              <p className="mutedP">
-                Play a cognitive game to see performance here.
-              </p>
-            ) : (
-              <div className="simpleList">
-
-                <div className="listItem">
-                  <div className="listIcon">
-                    🧠
-                  </div>
-
-                  <div>
-                    <div className="listTitle">
-                      Cognitive Activity
-                    </div>
-
-                    <div className="listSub">
-                      {totalGames} game
-                      {totalGames !== 1 ? "s" : ""} completed
-                    </div>
-                  </div>
-                </div>
-
-                <div className="listItem">
-                  <div className="listIcon">
-                    ⭐
-                  </div>
-
-                  <div>
-                    <div className="listTitle">
-                      Average Score
-                    </div>
-
-                    <div className="listSub">
-                      {averageScore}% across completed games
-                    </div>
-                  </div>
-                </div>
-
-                <div className="listItem">
-                  <div className="listIcon">
-                    ⏱️
-                  </div>
-
-                  <div>
-                    <div className="listTitle">
-                      Average Completion Time
-                    </div>
-
-                    <div className="listSub">
-                      {minutes}m {seconds}s
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            )}
-
-          </div>
-
-          <button
-            className="primaryBtn"
-            onClick={toggleRole}
-          >
+          <button className="primaryBtn" onClick={() => toggleRole()}>
             ← {t.switchToPatient}
           </button>
-
         </div>
       </div>
     );
   };
-                
 
   return (
     <div className="phoneShell">

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CogniSaathi - Routine Recall</title>
+
+    <link rel="stylesheet" href="routine.css">
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+
+        <!-- HEADER -->
+        <header class="game-header game-header-hide">
+
+            <div class="brand">
+                <div class="brand-icon">🌿</div>
+
+                <div>
+                    <h1>CogniSaathi</h1>
+                    <p>Routine Recall</p>
+                </div>
+            </div>
+
+            <div class="cultural-badge">
+                🍵 🌺 🎋
+                <span>Inspired by Northeast India</span>
+            </div>
+
+        </header>
+
+
+        <!-- MAIN GAME -->
+        <main class="game-container">
+
+            <!-- INTRO -->
+            <section id="introScreen" class="screen">
+
+                <div class="welcome-icon">🧠</div>
+
+                <h2>Remember the Routine</h2>
+
+                <p class="intro-text">
+                    Watch a short sequence of everyday activities,
+                    remember what happened, and answer the questions.
+                </p>
+
+                <div class="cultural-strip">
+                    <span>🍵</span>
+                    <span>🎋</span>
+                    <span>🌺</span>
+                    <span>🧵</span>
+                    <span>🐦</span>
+                </div>
+
+                <div class="difficulty-section">
+
+                    <h3>Choose Difficulty</h3>
+
+                    <div class="difficulty-buttons">
+
+                        <button class="difficulty-btn active"
+                                data-difficulty="easy">
+                            <strong>Easy</strong>
+                            <small>3 activities</small>
+                        </button>
+
+                        <button class="difficulty-btn"
+                                data-difficulty="medium">
+                            <strong>Medium</strong>
+                            <small>4 activities</small>
+                        </button>
+
+                        <button class="difficulty-btn"
+                                data-difficulty="hard">
+                            <strong>Hard</strong>
+                            <small>5 activities</small>
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <button id="startBtn" class="primary-btn">
+                    Start Game →
+                </button>
+
+            </section>
+
+
+            <!-- SEQUENCE SCREEN -->
+            <section id="sequenceScreen" class="screen hidden">
+
+                <div class="progress-area">
+
+                    <div class="progress-info">
+                        <span>Remember this routine</span>
+                        <span id="sequenceTimer">10</span>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div id="sequenceProgress"></div>
+                    </div>
+
+                </div>
+
+                <h2>What happened during the routine?</h2>
+
+                <p class="instruction">
+                    Take your time and remember the order.
+                </p>
+
+                <div id="sequenceContainer" class="sequence-container">
+                </div>
+
+                <button id="readyBtn" class="primary-btn">
+                    I'm Ready →
+                </button>
+
+            </section>
+
+
+            <!-- QUESTION SCREEN -->
+            <section id="questionScreen" class="screen hidden">
+
+                <div class="question-header">
+
+                    <div class="question-number">
+                        Question <span id="questionNumber">1</span>
+                    </div>
+
+                    <div class="score-display">
+                        ⭐ <span id="scoreDisplay">0</span>
+                    </div>
+
+                </div>
+
+                <div class="question-card">
+
+                    <div class="question-icon">
+                        🧠
+                    </div>
+
+                    <h2 id="questionText">
+                        What happened first?
+                    </h2>
+
+                </div>
+
+                <div id="optionsContainer" class="options-container">
+                </div>
+
+                <div id="feedback" class="feedback hidden">
+                </div>
+
+                <button id="nextBtn" class="primary-btn hidden">
+                    Next Question →
+                </button>
+
+            </section>
+
+
+            <!-- RESULT SCREEN -->
+            <section id="resultScreen" class="screen hidden">
+
+                <div class="result-icon">
+                    🌺
+                </div>
+
+                <h2>Routine Complete!</h2>
+
+                <p class="result-message">
+                    Great job remembering the routine.
+                </p>
+
+                <div class="result-card">
+
+                    <div class="result-item">
+                        <span>⭐</span>
+                        <strong id="finalScore">0</strong>
+                        <small>Score</small>
+                    </div>
+
+                    <div class="result-item">
+                        <span>🎯</span>
+                        <strong id="finalCorrect">0</strong>
+                        <small>Correct</small>
+                    </div>
+
+                    <div class="result-item">
+                        <span>⏱️</span>
+                        <strong id="finalTime">0s</strong>
+                        <small>Time</small>
+                    </div>
+
+                </div>
+
+                <div class="cultural-message">
+                    🍵 Take a moment to relax and enjoy the day 🌿
+                </div>
+
+                <button id="restartBtn" class="primary-btn">
+                    Play Again ↻
+                </button>
+
+            </section>
+
+        </main>
+
+
+        <!-- FOOTER -->
+        <footer>
+
+            <div class="footer-pattern">
+                🎋 ─── 🌺 ─── 🍵 ─── 🧵 ─── 🐦
+            </div>
+
+            <p>
+                CogniSaathi • Routine Recall
+            </p>
+
+            <small>
+                Inspired by the natural beauty and cultural traditions
+                of North-Eastern India
+            </small>
+
+        </footer>
+
+    </div>
+
+    <script src="../../voice.js"></script>
+<script src="routine.js"></script>
+
+</body>
+</html>
+
