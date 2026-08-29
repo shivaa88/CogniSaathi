@@ -2,28 +2,51 @@
 // CAREGIVER DASHBOARD DATA
 // ==========================================
 
+// ==========================================
+// REAL GAME DATA FROM LOCAL STORAGE
+// ==========================================
+
+const gameResults =
+    JSON.parse(localStorage.getItem("gameResults")) || [];
+
+const totalActivities = gameResults.length;
+
+const averageScore =
+    totalActivities > 0
+        ? Math.round(
+            gameResults.reduce(
+                (sum, result) => sum + Number(result.score || 0),
+                0
+            ) / totalActivities
+        )
+        : 0;
+
+const averageTimeSeconds =
+    totalActivities > 0
+        ? Math.round(
+            gameResults.reduce(
+                (sum, result) => sum + Number(result.time || 0),
+                0
+            ) / totalActivities
+        )
+        : 0;
+
+const minutes = Math.floor(averageTimeSeconds / 60);
+const seconds = averageTimeSeconds % 60;
+
+const averageTime =
+    `${minutes}m ${seconds}s`;
+
 const patientData = {
-
     name: "Raj Sharma",
+    activities: totalActivities,
+    accuracy: averageScore,
+    averageTime: averageTime,
 
-    activities: 3,
-
-    accuracy: 78,
-
-    averageTime: "4m 20s",
-
-    performance: [
-        68,
-        72,
-        75,
-        70,
-        82,
-        78,
-        84
-    ]
-
+    performance: gameResults.map(
+        result => Number(result.score || 0)
+    )
 };
-
 
 // ==========================================
 // DISPLAY PATIENT DATA
