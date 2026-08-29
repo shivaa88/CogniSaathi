@@ -1,37 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CogniSaathi</title>
-</head>
-<body>
+  </head>
 
-    <h1>CogniSaathi</h1>
+  <body>
+    <div id="root"></div>
 
-    <h2 id="languageTitle">Choose your language</h2>
-    <button onclick="VoiceSystem.setLanguage('english')">English</button>
-    <button onclick="VoiceSystem.setLanguage('assamese')">অসমীয়া</button>
-    <button onclick="VoiceSystem.play('choose-language')">🔊 Play</button>
-
-    <h2 id="welcomeText">Welcome to CogniSaathi</h2>
-    <button onclick="VoiceSystem.play('welcome')">🔊 Welcome</button>
-    <button onclick="VoiceSystem.repeat()">🔁 Repeat</button>
-
-    <hr>
-
-    <h2 id="playGamesText">Play Games</h2>
-    <p id="chooseGameText">Choose a game to play</p>
-
-    <h2 id="memoryGameText">Memory Match</h2>
-    <a href="games/memory.html">Open Memory Match</a>
-
-    <h2 id="patternGameText">Pattern Recognition</h2>
-    <a href="games/pattern.html">Open Pattern Recognition</a>
-
-    <h2 id="routineGameText">Routine Recall</h2>
-    <a href="games/routine.html">Open Routine Recall</a>
-
-    <script src="voice.js"></script>
-</body>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
