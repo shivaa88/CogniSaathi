@@ -26,7 +26,7 @@ body {
 /* ================= HEADER ================= */
 
 .header {
-    background: #ffffff;
+    background: #EAD2A8;
 
     min-height: 82px;
 
@@ -125,7 +125,7 @@ body {
 .logout-btn {
     border: 2px solid #d7e4d4;
 
-    background: #fafcf9;
+    background: #EAD2A8;
 
     color: #496351;
 
@@ -193,7 +193,7 @@ body {
 }
 
 .date-badge {
-    background: #f8f4e6;
+    background: #EAD2A8;
 
     color: #665f46;
 
@@ -210,7 +210,7 @@ body {
 /* ================= PATIENT ================= */
 
 .patient-card {
-    background: white;
+    background: #EAD2A8;
 
     padding: 22px 25px;
 
@@ -301,7 +301,7 @@ body {
 }
 
 .stat-card {
-    background: white;
+    background: #EAD2A8;
 
     padding: 22px;
 
@@ -357,7 +357,7 @@ body {
 /* ================= GENERAL CARD ================= */
 
 .card {
-    background: white;
+    background: #EAD2A8;
 
     padding: 27px;
 
@@ -539,7 +539,7 @@ body {
 }
 
 .warning {
-    background: #f8f4e6;
+    background: #EAD2A8;
 
     border-color: #ece4c9;
 }
