@@ -6,9 +6,9 @@ type Screen = "home" | "games" | "reminders" | "voice" | "call";
 type Lang = "en" | "assamese";
 
 const GAME_FILES = [
-  { key: "memory", en: "Memory Match", as: "মেচ মেমৰি", file: "memory.html", emoji: "🎴", tag: "PAIRS GAME", level: "Easy" },
-  { key: "pattern", en: "Pattern Recognition", as: "পেটাৰ্ণ চিনাক্তকৰণ", file: "pattern.html", emoji: "🔮", tag: "WHAT COMES NEXT?", level: "Easy" },
-  { key: "routine", en: "Routine Recall", as: "ৰুটিন ৰিকল", file: "routine.html", emoji: "📋", tag: "ORDER THE DAY", level: "Easy" },
+  { key: "memory", en: "Memory Match", as: "মেচ মেমৰি", file: "memory.html", emoji: "🎴", tagEn: "PAIRS GAME", tagAs: "যোৰ মিলোৱা খেল", levelEn: "Easy", levelAs: "সহজ" },
+{ key: "pattern", en: "Pattern Recognition", as: "পেটাৰ্ণ চিনাক্তকৰণ", file: "pattern.html", emoji: "🔮", tagEn: "WHAT COMES NEXT?", tagAs: "ইয়াৰ পিছত কি আহিব?", levelEn: "Easy", levelAs: "সহজ" },
+{ key: "routine", en: "Routine Recall", as: "ৰুটিন ৰিকল", file: "routine.html", emoji: "📋", tagEn: "ORDER THE DAY", tagAs: "দিনটোৰ ক্ৰম", levelEn: "Easy", levelAs: "সহজ" },
 ] as const;
 
 function formatTime() {
@@ -70,6 +70,10 @@ export default function App() {
         caregiverDashTitle: "Caregiver Dashboard",
         caregiverSub: "Demo: add your charts/cards later",
         switchToPatient: "Switch to Patient View",
+        streakTitle: "5-Day Streak!",
+        streakSub: "You played every day this week",
+        gamesPlayedLabel: "games",
+        lostStreak: "Oh no! You lost the streak",
 
         language: "Language",
         english: "English",
@@ -80,6 +84,11 @@ export default function App() {
         remindersSub: "Medicine & tasks",
         voiceTitle: "Voice Assistant",
         voiceSub: "Ask and respond",
+        goodMorning: "Good Morning",
+        goodAfternoon: "Good Afternoon",
+        goodEvening: "Good Evening",
+        sleepingTime: "It's sleeping time",
+        whatWouldYouLike: "What would you like to do?",
         callTitle: "Call Family",
         callSub: "Tap a name to call",
 
@@ -100,13 +109,23 @@ export default function App() {
         caregiverDashTitle: "মগাই ডেশব'ৰ্ড",
         caregiverSub: "ডেম’ : পাছত আপোনাৰ কাৰ্ড/চাৰ্ট যোগ কৰক",
         switchToPatient: "পেছেন্টলৈ সলনি কৰক",
+        streakTitle: "৫ দিনৰ ধাৰাবাহিকতা!",
+        streakSub: "আপুনি এই সপ্তাহত প্ৰতিদিনে খেলিছে",
+        gamesPlayedLabel: "খেল",
+        lostStreak: "অ' নহয়! আপোনাৰ ধাৰাবাহিকতা ভাঙি গ'ল",
 
         language: "ভাষা",
         english: "ইংৰাজী",
         assamese: "অসমীয়া",
 
+        
         remindersTitle: "মোৰ মনত",
         remindersSub: "মেডিচিন আৰু কাম",
+        goodMorning: "সুপ্ৰভাত",
+        goodAfternoon: "শুভ দুপৰীয়া",
+        goodEvening: "শুভ সন্ধিয়া",
+        sleepingTime: "এতিয়া শোৱাৰ সময়",
+        whatWouldYouLike: "আপুনি কি কৰিব বিচাৰে?",
         voiceTitle: "ভয়চ সহায়",
         voiceSub: "প্ৰশ্ন কৰক আৰু উত্তৰ পাওক",
         callTitle: "পৰিয়ালক কল কৰক",
@@ -231,12 +250,23 @@ export default function App() {
           <div className="homeHeader">
             <div className="homeIcon">🌿</div>
             <div>
-              <div className="homeTitle">Good Evening</div>
-              <div className="homeSub">What would you like to do?</div>
+              
+<div className="homeTitle">
+  {(() => {
+    const hour = new Date().getHours();
+
+    if (hour >= 6 && hour < 12) return t.goodMorning;
+    if (hour >= 12 && hour < 17) return t.goodAfternoon;
+    if (hour >= 17 && hour < 22) return t.goodEvening;
+    return t.sleepingTime;
+  })()}
+</div>
+
+<div className="homeSub">{t.whatWouldYouLike}</div>
             </div>
+
           </div>
 
-          <h2 className="homeSectionTitle">{t.playGames}</h2>
 
           <div className="grid3">
   <button className="homeTile" onClick={() => go("reminders")}>
@@ -259,11 +289,8 @@ export default function App() {
 
   <button className="homeTile" onClick={() => openGameInShell("select")}>
     <div className="tileEmoji">🎴</div>
-    <div className="tileTitle">Play Games</div>
-    <div className="tileSub">
-      Choose a game<br />
-      to play
-    </div>
+    <div className="tileTitle">{t.playGames}</div>
+<div className="tileSub">{t.chooseGame}</div>
   </button>
 </div>
 
@@ -289,12 +316,12 @@ export default function App() {
               <div className="streakCard">
                 <div className="flame">🔥</div>
                 <div className="streakMid">
-                  <div className="streakTitle">5-Day Streak!</div>
-                  <div className="streakSub">You played every day this week</div>
+                  <div className="streakTitle">{t.streakTitle}</div>
+                    <div className="streakSub">{t.streakSub}</div>
                 </div>
                 <div className="streakRight">
                   <div className="streakNum">12</div>
-                  <div className="streakNumSub">games</div>
+                  <div className="streakNumSub">{t.gamesPlayedLabel}</div>
                 </div>
               </div>
 
@@ -309,10 +336,10 @@ export default function App() {
                       <div className="gameCardEmoji">{g.emoji}</div>
                     </div>
                     <div className="gameCardMid">
-                      <div className="gameCardTag">{g.tag}</div>
+                      <div className="gameCardTag">{lang === "en" ? g.tagEn : g.tagAs}</div>
                       <div className="gameCardTitle">{lang === "en" ? g.en : g.as}</div>
                       <div className="gameCardLevel">
-                        <span className="levelPill">{g.level}</span>
+                        <span className="levelPill">{lang === "en" ? g.levelEn : g.levelAs}</span>
                       </div>
                     </div>
                   </button>
