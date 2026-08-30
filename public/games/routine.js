@@ -2,6 +2,145 @@
    CogniSaathi - ROUTINE RECALL
    ===================================================== */
 
+const params = new URLSearchParams(window.location.search);
+const selectedLanguage = params.get("lang") || "en";
+
+const language =
+    selectedLanguage === "assamese" ? "assamese" : "english";
+
+const translations = {
+    en: {
+        title: "Remember the Routine",
+        intro: "Watch a short sequence of everyday activities, remember what happened, and answer the questions.",
+        chooseDifficulty: "Choose Difficulty",
+
+        easy: "Easy",
+        easySub: "3 activities",
+        medium: "Medium",
+        mediumSub: "4 activities",
+        hard: "Hard",
+        hardSub: "5 activities",
+
+        startGame: "Start Game →",
+
+        rememberRoutine: "Remember this routine",
+        whatHappened: "What happened during the routine?",
+        instruction: "Take your time and remember the order.",
+        ready: "I'm Ready →",
+
+        question: "Question",
+        nextQuestion: "Next Question →",
+
+        routineComplete: "Routine Complete!",
+        resultMessage: "Great job remembering the routine.",
+
+        score: "Score",
+        correct: "Correct",
+        time: "Time",
+
+        relax: "🍵 Take a moment to relax and enjoy the day 🌿",
+        playAgain: "Play Again ↻",
+
+readyLabel: "Ready",
+
+firstQuestion: "What happened first?",
+lastQuestion: "What happened last?",
+afterQuestion: (activity) => `What came after "${activity}"?`,
+thirdQuestion: "What was the 3rd activity?",
+happenedAfter: (activity) => `What happened after "${activity}"?`,
+
+correctFeedback: "✓ Correct! Well remembered.",
+
+activities: {
+    "Wake up": "Wake up",
+    "Brush teeth": "Brush teeth",
+    "Have tea": "Have tea",
+    "Wash face": "Wash face",
+    "Have breakfast": "Have breakfast",
+    "Water plants": "Water plants",
+    "Drink tea": "Drink tea",
+    "Read a book": "Read a book",
+    "Read the newspaper": "Read the newspaper",
+    "Work with bamboo": "Work with bamboo",
+    "Do some weaving": "Do some weaving",
+    "Water orchids": "Water orchids",
+    "Have evening tea": "Have evening tea",
+    "Read": "Read",
+    "Prepare for bed": "Prepare for bed"
+}
+
+    },
+
+    assamese: {
+        title: "দৈনন্দিন ক্ৰমটো মনত ৰাখক",
+        intro: "দৈনন্দিন কামৰ এটা সৰু ক্ৰম চাওক, কি ঘটিছিল মনত ৰাখক আৰু প্ৰশ্নবোৰৰ উত্তৰ দিয়ক।",
+        chooseDifficulty: "কঠিনতাৰ স্তৰ বাছনি কৰক",
+
+        easy: "সহজ",
+        easySub: "৩টা কাম",
+        medium: "মধ্যম",
+        mediumSub: "৪টা কাম",
+        hard: "কঠিন",
+        hardSub: "৫টা কাম",
+
+        startGame: "খেল আৰম্ভ কৰক →",
+
+        rememberRoutine: "এই ক্ৰমটো মনত ৰাখক",
+        whatHappened: "দৈনন্দিন ক্ৰমটোত কি ঘটিছিল?",
+        instruction: "সময় লৈ কামবোৰৰ ক্ৰমটো মনত ৰাখক।",
+        ready: "মই সাজু →",
+
+        question: "প্ৰশ্ন",
+        nextQuestion: "পৰৱৰ্তী প্ৰশ্ন →",
+
+        routineComplete: "দৈনন্দিন ক্ৰম সম্পূৰ্ণ!",
+        resultMessage: "ক্ৰমটো মনত ৰখাৰ বাবে খুব ভাল।",
+
+        score: "স্ক'ৰ",
+        correct: "শুদ্ধ",
+        time: "সময়",
+
+        relax: "🍵 অলপ জিৰণি লওক আৰু দিনটো উপভোগ কৰক 🌿",
+        playAgain: "আকৌ খেলক ↻",
+  readyLabel: "সাজু",
+
+firstQuestion: "প্ৰথমে কি ঘটিছিল?",
+lastQuestion: "শেষত কি ঘটিছিল?",
+afterQuestion: (activity) => `"${activity}"ৰ পিছত কি হৈছিল?`,
+thirdQuestion: "৩ নম্বৰ কামটো কি আছিল?",
+happenedAfter: (activity) => `"${activity}"ৰ পিছত কি ঘটিছিল?`,
+
+correctFeedback: "✓ শুদ্ধ! খুব ভালকৈ মনত ৰাখিছে।",
+
+activities: {
+    "Wake up": "শুই উঠা",
+    "Brush teeth": "দাঁত মাজা",
+    "Have tea": "চাহ খোৱা",
+    "Wash face": "মুখ ধোৱা",
+    "Have breakfast": "জলপান খোৱা",
+    "Water plants": "গছত পানী দিয়া",
+    "Drink tea": "চাহ খোৱা",
+    "Read a book": "কিতাপ পঢ়া",
+    "Read the newspaper": "বাতৰিকাকত পঢ়া",
+    "Work with bamboo": "বাঁহৰ কাম কৰা",
+    "Do some weaving": "বোৱা কাম কৰা",
+    "Water orchids": "অৰ্কিডত পানী দিয়া",
+    "Have evening tea": "সন্ধিয়াৰ চাহ খোৱা",
+    "Read": "পঢ়া",
+    "Prepare for bed": "শুবলৈ সাজু হোৱা"
+}
+
+  }
+};
+
+const text = translations[selectedLanguage] || translations.en;
+
+function activityLabel(activity) {
+    return text.activities[activity] || activity;
+}
+
+console.log("ROUTINE LANGUAGE:", selectedLanguage);
+console.log("ROUTINE TEXT:", text);
 
 /* ================= GAME DATA ================= */
 
@@ -105,10 +244,8 @@ const GAME_AUDIO = {
     hard: "hard"
 };
 
-function playGameAudio(name) {
-    const language =
-        localStorage.getItem("CogniSaathiLanguage") || "english";
 
+function playGameAudio(name) {
     const audio = new Audio(
         `../audio/${language}/${name}.mp3`
     );
@@ -117,6 +254,8 @@ function playGameAudio(name) {
         console.log("Audio error:", error);
     });
 }
+
+
 
 let currentDifficulty = "easy";
 let currentRoutine = null;
@@ -176,6 +315,48 @@ const sequenceTimer =
 const sequenceProgress =
     document.getElementById("sequenceProgress");
 
+// Apply selected language to Routine Recall UI
+document.documentElement.lang =
+    selectedLanguage === "assamese" ? "as" : "en";
+
+document.getElementById("routine-title").textContent =
+    text.title;
+
+document.getElementById("routine-intro").textContent =
+    text.intro;
+
+document.getElementById("routine-difficulty-title").textContent =
+    text.chooseDifficulty;
+
+document.getElementById("routine-easy").textContent =
+    text.easy;
+
+document.getElementById("routine-easy-sub").textContent =
+    text.easySub;
+
+document.getElementById("routine-medium").textContent =
+    text.medium;
+
+document.getElementById("routine-medium-sub").textContent =
+    text.mediumSub;
+
+document.getElementById("routine-hard").textContent =
+    text.hard;
+
+document.getElementById("routine-hard-sub").textContent =
+    text.hardSub;
+
+startBtn.textContent =
+    text.startGame;
+
+readyBtn.textContent =
+    text.ready;
+
+nextBtn.textContent =
+    text.nextQuestion;
+
+restartBtn.textContent =
+    text.playAgain;
 
 /* ================= DIFFICULTY ================= */
 
@@ -240,7 +421,7 @@ function createQuestions() {
 
     questions.push({
         type: "first",
-        text: "What happened first?",
+        text: text.firstQuestion,
         answer: sequence[0].activity
     });
 
@@ -249,7 +430,7 @@ function createQuestions() {
 
     questions.push({
         type: "last",
-        text: "What happened last?",
+        text: text.lastQuestion,
         answer: sequence[sequence.length - 1].activity
     });
 
@@ -260,7 +441,9 @@ function createQuestions() {
 
         questions.push({
             type: "next",
-            text: `What came after "${sequence[0].activity}"?`,
+            text: text.afterQuestion(
+    activityLabel(sequence[0].activity)
+),
             answer: sequence[1].activity
         });
 
@@ -273,7 +456,7 @@ function createQuestions() {
 
         questions.push({
             type: "position",
-            text: `What was the 3rd activity?`,
+            text: text.thirdQuestion,
             answer: sequence[2].activity
         });
 
@@ -286,7 +469,9 @@ function createQuestions() {
 
         questions.push({
             type: "next2",
-            text: `What happened after "${sequence[2].activity}"?`,
+            text: text.happenedAfter(
+    activityLabel(sequence[2].activity)
+),
             answer: sequence[3].activity
         });
 
@@ -323,7 +508,7 @@ function showSequence() {
             <div class="emoji">${item.emoji}</div>
 
             <div class="activity">
-                ${index + 1}. ${item.activity}
+                ${index + 1}. ${activityLabel(item.activity)}
             </div>
         `;
 
@@ -367,7 +552,7 @@ function startSequenceTimer() {
 
                 clearInterval(timer);
 
-                sequenceTimer.textContent = "Ready";
+                sequenceTimer.textContent = text.readyLabel;
 
             }
 
@@ -380,7 +565,7 @@ function startSequenceTimer() {
 
 readyBtn.addEventListener("click", () => {
 
-    playGameAudio("matching-card");
+    playGameAudio("matching-pairs");
 
     showQuestion();
 
@@ -459,7 +644,7 @@ function createOptions(question) {
             "option-btn";
 
         button.textContent =
-            option;
+    activityLabel(option);
 
         button.addEventListener(
             "click",

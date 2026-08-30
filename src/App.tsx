@@ -363,7 +363,7 @@ export default function App() {
               <iframe
                 className="gameIframe"
                 title="game"
-                src={`/games/${activeGameFile}`}
+                src={`/games/${activeGameFile}?lang=${lang}`}
               />
             </div>
           )}

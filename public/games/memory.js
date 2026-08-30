@@ -2,6 +2,35 @@
    CogniSaathi - MEMORY MATCH
    ===================================================== */
 
+const params = new URLSearchParams(window.location.search);
+const selectedLanguage = params.get("lang") || "en";
+
+const language =
+    selectedLanguage === "assamese" ? "assamese" : "english";
+
+const translations = {
+    en: {
+        memoryTitle: "Memory Match",
+        intro: "Match the familiar symbols and strengthen memory through playful recall.",
+        chooseDifficulty: "Choose Difficulty",
+        easy: "Easy",
+        medium: "Medium",
+        hard: "Hard",
+        pairs: "pairs"
+    },
+
+    assamese: {
+        memoryTitle: "স্মৃতি মিলোৱা",
+        intro: "চিনাকি চিহ্নবোৰ মিলাই খেলৰ মাজেৰে স্মৃতিশক্তিৰ অনুশীলন কৰক।",
+        chooseDifficulty: "কঠিনতাৰ স্তৰ বাছনি কৰক",
+        easy: "সহজ",
+        medium: "মধ্যম",
+        hard: "কঠিন",
+        pairs: "যোৰ"
+    }
+};
+
+const text = translations[selectedLanguage] || translations.en;
 
 /* ================= AUDIO ================= */
 
@@ -17,10 +46,7 @@ function stopCurrentAudio() {
 }
 
 function playGameAudio(audioName) {
-    const language =
-        localStorage.getItem("CogniSaathiLanguage") || "english";
-
-    stopCurrentAudio();
+        stopCurrentAudio();
 
     currentAudio = new Audio(
         `../audio/${language}/${audioName}.mp3`
@@ -33,6 +59,17 @@ function playGameAudio(audioName) {
     });
 }
 
+document.documentElement.lang =
+    selectedLanguage === "assamese" ? "as" : "en";
+
+document.getElementById("memory-title").textContent =
+    text.memoryTitle;
+
+document.getElementById("memory-intro").textContent =
+    text.intro;
+
+document.getElementById("difficulty-title").textContent =
+    text.chooseDifficulty;
 
 /* ================= DOM ELEMENTS ================= */
 
@@ -189,7 +226,7 @@ function flipCard() {
         gameStarted = true;
 
         // Game instruction audio
-        playGameAudio("matching-card");
+        playGameAudio("matching-pairs");
     }
 
     this.classList.add("flipped");

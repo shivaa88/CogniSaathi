@@ -41,12 +41,12 @@
 
                 <div class="welcome-icon">🧠</div>
 
-                <h2>Remember the Routine</h2>
+                <h2 id="routine-title">Remember the Routine</h2>
 
-                <p class="intro-text">
-                    Watch a short sequence of everyday activities,
-                    remember what happened, and answer the questions.
-                </p>
+                <p class="intro-text" id="routine-intro">
+    Watch a short sequence of everyday activities,
+    remember what happened, and answer the questions.
+</p>
 
                 <div class="cultural-strip">
                     <span>🍵</span>
@@ -58,26 +58,26 @@
 
                 <div class="difficulty-section">
 
-                    <h3>Choose Difficulty</h3>
+                    <h3 id="routine-difficulty-title">Choose Difficulty</h3>
 
                     <div class="difficulty-buttons">
 
                         <button class="difficulty-btn active"
                                 data-difficulty="easy">
-                            <strong>Easy</strong>
-                            <small>3 activities</small>
+                            <strong id="routine-easy">Easy</strong>
+                       <small id="routine-easy-sub">3 activities</small>
                         </button>
 
                         <button class="difficulty-btn"
                                 data-difficulty="medium">
-                            <strong>Medium</strong>
-                            <small>4 activities</small>
+                            <strong id="routine-medium">Medium</strong>
+                        <small id="routine-medium-sub">4 activities</small>
                         </button>
 
                         <button class="difficulty-btn"
                                 data-difficulty="hard">
-                            <strong>Hard</strong>
-                            <small>5 activities</small>
+                            <strong id="routine-hard">Hard</strong>
+                       <small id="routine-hard-sub">5 activities</small>
                         </button>
 
                     </div>
@@ -232,6 +232,7 @@
     </div>
 
     <script src="../../voice.js"></script>
+<script src="game-i18n.js"></script>
 <script src="routine.js"></script>
 
 </body>

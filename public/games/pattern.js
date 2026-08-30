@@ -3,6 +3,89 @@
     Pattern Recognition Game
 */
 
+const params = new URLSearchParams(window.location.search);
+const selectedLanguage = params.get("lang") || "en";
+
+const language =
+    selectedLanguage === "assamese" ? "assamese" : "english";
+
+const translations = {
+    en: {
+        title: "Pattern Recognition",
+        intro: "Notice the pattern and choose what comes next.",
+        chooseDifficulty: "Choose Difficulty",
+
+        easy: "Easy",
+        easySub: "Simple repeating patterns",
+
+        medium: "Medium",
+        mediumSub: "Moderate symbol sequences",
+
+        hard: "Hard",
+        hardSub: "Longer challenging patterns",
+
+        score: "Score",
+        correct: "Correct",
+        attempts: "Attempts",
+
+        question: "Question",
+        of: "of",
+
+        whatNext: "What comes next?",
+        chooseAnswer: "Choose an answer",
+        nextQuestion: "Next Question →",
+
+        greatJob: "Great Job!",
+        completed: "You completed the pattern challenge.",
+        playAgain: "🔄 Play Again"
+    },
+
+    assamese: {
+        title: "পেটাৰ্ণ চিনাক্তকৰণ",
+        intro: "পেটাৰ্ণটো লক্ষ্য কৰক আৰু ইয়াৰ পিছত কি আহিব বাছনি কৰক।",
+        chooseDifficulty: "কঠিনতাৰ স্তৰ বাছনি কৰক",
+
+        easy: "সহজ",
+        easySub: "সহজ পুনৰাবৃত্ত পেটাৰ্ণ",
+
+        medium: "মধ্যম",
+        mediumSub: "মধ্যম প্ৰতীকৰ ক্ৰম",
+
+        hard: "কঠিন",
+        hardSub: "দীঘল আৰু কঠিন পেটাৰ্ণ",
+
+        score: "স্ক'ৰ",
+        correct: "শুদ্ধ",
+        attempts: "চেষ্টা",
+
+        question: "প্ৰশ্ন",
+        of: "ৰ ভিতৰত",
+
+        whatNext: "ইয়াৰ পিছত কি আহিব?",
+        chooseAnswer: "এটা উত্তৰ বাছনি কৰক",
+        nextQuestion: "পৰৱৰ্তী প্ৰশ্ন →",
+
+        greatJob: "খুব ভাল!",
+        completed: "আপুনি পেটাৰ্ণৰ খেলটো সম্পূৰ্ণ কৰিলে।",
+        playAgain: "🔄 আকৌ খেলক"
+    }
+};
+
+const text = translations[selectedLanguage] || translations.en;
+
+
+document.documentElement.lang =
+    selectedLanguage === "assamese" ? "as" : "en";
+
+document.getElementById("pattern-title").textContent =
+    text.title;
+
+document.getElementById("pattern-intro").textContent =
+    text.intro;
+
+document.getElementById("pattern-difficulty-title").textContent =
+    text.chooseDifficulty;
+
 /* =========================
    QUESTION SETS
 ========================= */
