@@ -86,6 +86,31 @@ document.getElementById("pattern-intro").textContent =
 document.getElementById("pattern-difficulty-title").textContent =
     text.chooseDifficulty;
 
+const patternDifficultyButtons =
+    document.querySelectorAll(".difficulty-btn");
+
+patternDifficultyButtons.forEach(button => {
+    const level = button.dataset.level;
+
+    const title = button.querySelector("strong");
+    const subtitle = button.querySelector("small");
+
+    if (level === "easy") {
+        title.textContent = text.easy;
+        subtitle.textContent = text.easySub;
+    }
+
+    if (level === "medium") {
+        title.textContent = text.medium;
+        subtitle.textContent = text.mediumSub;
+    }
+
+    if (level === "hard") {
+        title.textContent = text.hard;
+        subtitle.textContent = text.hardSub;
+    }
+});
+
 /* =========================
    QUESTION SETS
 ========================= */

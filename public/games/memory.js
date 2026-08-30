@@ -71,6 +71,41 @@ document.getElementById("memory-intro").textContent =
 document.getElementById("difficulty-title").textContent =
     text.chooseDifficulty;
 
+
+const memoryDifficultyButtons =
+    document.querySelectorAll(".difficulty-btn");
+
+memoryDifficultyButtons.forEach(button => {
+    const level = button.dataset.level;
+
+    const title = button.querySelector("strong");
+    const subtitle = button.querySelector("small");
+
+    if (level === "easy") {
+        title.textContent = text.easy;
+        subtitle.textContent =
+            selectedLanguage === "assamese"
+                ? "4 যোৰ"
+                : "4 pairs";
+    }
+
+    if (level === "medium") {
+        title.textContent = text.medium;
+        subtitle.textContent =
+            selectedLanguage === "assamese"
+                ? "6 যোৰ"
+                : "6 pairs";
+    }
+
+    if (level === "hard") {
+        title.textContent = text.hard;
+        subtitle.textContent =
+            selectedLanguage === "assamese"
+                ? "8 যোৰ"
+                : "8 pairs";
+    }
+});
+
 /* ================= DOM ELEMENTS ================= */
 
 const gameBoard = document.getElementById("game-board");

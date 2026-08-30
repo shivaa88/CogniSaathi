@@ -69,6 +69,44 @@ export default function App() {
         call: "Call",
         caregiverDashTitle: "Caregiver Dashboard",
         caregiverSub: "Demo: add your charts/cards later",
+        caregiverPerformanceSub: "Patient game performance",
+
+gamesPlayed: "Games Played",
+completedCognitiveGames: "Completed cognitive games",
+
+averageScore: "Average Score",
+acrossAllGames: "Across all games",
+
+averageTime: "Average Time",
+averageCompletionTime: "Average completion time",
+
+recentGamePerformance: "Recent Game Performance",
+noGamesCompleted: "No games completed yet.",
+
+scoreLabel: "Score",
+timeLabel: "Time",
+levelLabel: "Level",
+
+performanceSummary: "Performance Summary",
+playGameToSeePerformance: "Play a cognitive game to see performance here.",
+
+cognitiveActivity: "Cognitive Activity",
+gameSingular: "game",
+gamePlural: "games",
+completedLabel: "completed",
+
+acrossCompletedGames: "across completed games",
+
+memoryGameName: "Memory Match",
+patternGameName: "Pattern Recognition",
+routineGameName: "Routine Recall",
+
+easyLevel: "Easy",
+mediumLevel: "Medium",
+hardLevel: "Hard",
+
+minuteShort: "m",
+secondShort: "s",
         switchToPatient: "Switch to Patient View",
         streakTitle: "5-Day Streak!",
         streakSub: "You played every day this week",
@@ -108,7 +146,45 @@ export default function App() {
         call: "কল",
         caregiverDashTitle: "মগাই ডেশব'ৰ্ড",
         caregiverSub: "ডেম’ : পাছত আপোনাৰ কাৰ্ড/চাৰ্ট যোগ কৰক",
-        switchToPatient: "পেছেন্টলৈ সলনি কৰক",
+caregiverPerformanceSub: "ৰোগীৰ খেলৰ প্ৰদৰ্শন",
+
+gamesPlayed: "খেলা খেলৰ সংখ্যা",
+completedCognitiveGames: "সম্পূৰ্ণ কৰা জ্ঞানীয় খেল",
+
+averageScore: "গড় স্ক'ৰ",
+acrossAllGames: "সকলো খেলৰ গড়",
+
+averageTime: "গড় সময়",
+averageCompletionTime: "সম্পূৰ্ণ কৰিবলৈ গড় সময়",
+
+recentGamePerformance: "শেহতীয়া খেলৰ প্ৰদৰ্শন",
+noGamesCompleted: "এতিয়ালৈকে কোনো খেল সম্পূৰ্ণ হোৱা নাই।",
+
+scoreLabel: "স্ক'ৰ",
+timeLabel: "সময়",
+levelLabel: "স্তৰ",
+
+performanceSummary: "প্ৰদৰ্শনৰ সাৰাংশ",
+playGameToSeePerformance: "ইয়াত প্ৰদৰ্শন চাবলৈ এটা জ্ঞানীয় খেল খেলক।",
+
+cognitiveActivity: "জ্ঞানীয় কাৰ্যকলাপ",
+gameSingular: "খেল",
+gamePlural: "খেল",
+completedLabel: "সম্পূৰ্ণ",
+
+acrossCompletedGames: "সম্পূৰ্ণ কৰা খেলসমূহৰ গড়",
+
+memoryGameName: "স্মৃতি মিলোৱা",
+patternGameName: "পেটাৰ্ণ চিনাক্তকৰণ",
+routineGameName: "দৈনন্দিন ক্ৰম মনত পেলোৱা",
+
+easyLevel: "সহজ",
+mediumLevel: "মধ্যম",
+hardLevel: "কঠিন",
+
+minuteShort: "মি",
+secondShort: "ছে",        
+switchToPatient: "পেছেন্টলৈ সলনি কৰক",
         streakTitle: "৫ দিনৰ ধাৰাবাহিকতা!",
         streakSub: "আপুনি এই সপ্তাহত প্ৰতিদিনে খেলিছে",
         gamesPlayedLabel: "খেল",
@@ -418,30 +494,54 @@ export default function App() {
     const minutes = Math.floor(averageTime / 60);
     const seconds = averageTime % 60;
 
+const getTranslatedGameName = (game: string) => {
+  if (game === "Memory Match" || game === "Memory Game") {
+    return t.memoryGameName;
+  }
+
+  if (game === "Pattern Recognition") {
+    return t.patternGameName;
+  }
+
+  if (game === "Routine Recall") {
+    return t.routineGameName;
+  }
+
+  return game;
+};
+
+const getTranslatedDifficulty = (difficulty: string) => {
+  if (difficulty === "easy") return t.easyLevel;
+  if (difficulty === "medium") return t.mediumLevel;
+  if (difficulty === "hard") return t.hardLevel;
+
+  return difficulty;
+};
+
     return (
-      <div className="content">
-        <div className="cardShell">
+  <div className="content">
+    <div className="cardShell">
 
-          <LanguageRow />
+      <LanguageRow />
 
-          <div className="careHeader">
-            <button
-              className="backLink"
-              onClick={toggleRole}
-            >
-              ← {t.switchToPatient}
-            </button>
+      <div className="careHeader">
+        <button
+          className="backLink"
+          onClick={toggleRole}
+        >
+          ← {t.switchToPatient}
+        </button>
 
-            <div className="careTitleWrap">
-              <div className="careTitle">
-                {t.caregiverDashTitle}
-              </div>
-
-              <div className="careSub">
-                Patient game performance
-              </div>
-            </div>
+        <div className="careTitleWrap">
+          <div className="careTitle">
+            {t.caregiverDashTitle}
           </div>
+
+          <div className="careSub">
+            {t.caregiverPerformanceSub}
+          </div>
+        </div>
+      </div>
 
           {/* =========================
               REAL GAME STATISTICS
@@ -449,61 +549,61 @@ export default function App() {
 
           <div className="careCards">
 
-            <div className="statCard">
-              <div className="statTop">
-                Games Played
-              </div>
+  <div className="statCard">
+    <div className="statTop">
+      {t.gamesPlayed}
+    </div>
 
-              <div className="statBig">
-                {totalGames}
-              </div>
+    <div className="statBig">
+      {totalGames}
+    </div>
 
-              <div className="statSub">
-                Completed cognitive games
-              </div>
-            </div>
+    <div className="statSub">
+      {t.completedCognitiveGames}
+    </div>
+  </div>
 
-            <div className="statCard">
-              <div className="statTop">
-                Average Score
-              </div>
+  <div className="statCard">
+    <div className="statTop">
+      {t.averageScore}
+    </div>
 
-              <div className="statBig">
-                {averageScore}%
-              </div>
+    <div className="statBig">
+      {averageScore}%
+    </div>
 
-              <div className="statSub">
-                Across all games
-              </div>
-            </div>
+    <div className="statSub">
+      {t.acrossAllGames}
+    </div>
+  </div>
 
-            <div className="statCard">
-              <div className="statTop">
-                Average Time
-              </div>
+  <div className="statCard">
+    <div className="statTop">
+      {t.averageTime}
+    </div>
 
-              <div className="statBig">
-                {minutes}m {seconds}s
-              </div>
+    <div className="statBig">
+      {minutes}{t.minuteShort} {seconds}{t.secondShort}
+    </div>
 
-              <div className="statSub">
-                Average completion time
-              </div>
-            </div>
+    <div className="statSub">
+      {t.averageCompletionTime}
+    </div>
+  </div>
 
-          </div>
+</div> 
 
           {/* =========================
               RECENT GAME RESULTS
           ========================== */}
 
           <div className="careSection">
-            <h3>Recent Game Performance</h3>
+  <h3>{t.recentGamePerformance}</h3>
 
-            {totalGames === 0 ? (
-              <p className="mutedP">
-                No games completed yet.
-              </p>
+  {totalGames === 0 ? (
+    <p className="mutedP">
+      {t.noGamesCompleted}
+    </p>
             ) : (
               <div className="simpleList">
 
@@ -524,16 +624,16 @@ export default function App() {
 
                       <div>
                         <div className="listTitle">
-                          {result.game}
+                          {getTranslatedGameName(result.game)}
                         </div>
 
                         <div className="listSub">
-                          Score: {result.score}%
-                          {" • "}
-                          Time: {result.time}s
-                          {" • "}
-                          Level: {result.difficulty}
-                        </div>
+  {t.scoreLabel}: {result.score}%
+  {" • "}
+  {t.timeLabel}: {result.time}{t.secondShort}
+  {" • "}
+  {t.levelLabel}: {getTranslatedDifficulty(result.difficulty)}
+</div>
 
                         <div className="listSub">
                           {result.date}
@@ -554,11 +654,11 @@ export default function App() {
 
           <div className="careSection">
 
-            <h3>Performance Summary</h3>
+            <h3>{t.performanceSummary}</h3>
 
             {totalGames === 0 ? (
               <p className="mutedP">
-                Play a cognitive game to see performance here.
+                {t.playGameToSeePerformance}
               </p>
             ) : (
               <div className="simpleList">
@@ -570,12 +670,13 @@ export default function App() {
 
                   <div>
                     <div className="listTitle">
-                      Cognitive Activity
+                      {t.cognitiveActivity}
                     </div>
 
                     <div className="listSub">
-                      {totalGames} game
-                      {totalGames !== 1 ? "s" : ""} completed
+                      {totalGames}{" "}
+{totalGames === 1 ? t.gameSingular : t.gamePlural}{" "}
+{t.completedLabel}
                     </div>
                   </div>
                 </div>
@@ -591,7 +692,7 @@ export default function App() {
                     </div>
 
                     <div className="listSub">
-                      {averageScore}% across completed games
+                      {averageScore}% {t.acrossCompletedGames}
                     </div>
                   </div>
                 </div>
@@ -603,11 +704,11 @@ export default function App() {
 
                   <div>
                     <div className="listTitle">
-                      Average Completion Time
+                      {t.averageCompletionTime}
                     </div>
 
                     <div className="listSub">
-                      {minutes}m {seconds}s
+                      {minutes}{t.minuteShort} {seconds}{t.secondShort}
                     </div>
                   </div>
                 </div>
